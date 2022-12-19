@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Image search engine</h1>
+            <form method="POST" class="row d-flex justify-content-center flex-wrap" enctype="multipart/form-data">
+                <input class="col-4 form-control mr-2" type="file" name="query_img"><br>
+                <input class="btn btn-outline-secondary" type="submit">
+            </form>
+            {% if query_path %}
+                <h3 class="text-center">Query : </h3>
+                <div class="d-flex justify-content-center flex-wrap">
+                    <img src="{{ query_path }}" class="text-center" height="180px" width="250px">
+                </div>
+                <h3>Results : </h3>
+            {% else %}
+                <p class="text-center mt-4">Download an image . . . </p>
+            {% endif %}
+            <div class="w-100">
+                {% for score in scores %}
+                <div class="float-left mr-2 mb-2">
+                    <img src="{{ score[1] }}" height="200px" width="300px">
+                    <figcaption>{{ score[0] }}</figcaption>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
+
+
