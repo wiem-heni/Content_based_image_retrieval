@@ -9,7 +9,7 @@ In off-line stage: the system automatically extracts  features of each image in 
 
 In on-line stage:
 
-User input an image query to the system.  
+User input a query image to the system.  
 
 The similarity is measured between the feature vector of the query image and the feature vectors of the images in the database.  
 
